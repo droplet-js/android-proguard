@@ -1,0 +1,54 @@
+# --- app ---
+
+# 指定代码的压缩级别
+-optimizationpasses 7
+# 是否使用大小写混合
+-dontusemixedcaseclassnames
+# 混淆时应用侵入式重载
+-overloadaggressively
+# 确定统一的混淆类的成员名称来增加混淆
+-useuniqueclassmembernames
+# 混淆时所采用的算法
+-optimizations !code/simplification/arithmetic,!field/*,!class/merging/*
+
+# 慎用，会影响应用加固
+#-repackageclasses 'android.proguard'
+
+# 为了方便查看外部崩溃 LOG 信息，便于定位修正 BUG
+-keepattributes Exceptions
+-keepattributes InnerClasses
+-keepattributes Signature
+-keepattributes Deprecated
+-keepattributes SourceFile
+-keepattributes LineNumberTable
+-keepattributes *Annotation*
+-keepattributes EnclosingMethod
+-keepattributes *JavascriptInterface*
+
+# 关闭 Log日志输出
+-assumenosideeffects class android.util.Log {
+    public static *** d(...);
+    public static *** v(...);
+    public static *** i(...);
+    public static *** printCalledStatus(...);
+    public static *** printCalledStackTrace(...);
+}
+
+-assumenosideeffects class java.io.PrintStream {
+    public void println(...);
+    public void print(...);
+}
+
+-assumenosideeffects class java.lang.Exception {
+    public void printStackTrace();
+}
+
+# android sdk
+-dontwarn android.os.**
+-keep class android.os.**
+
+# android layoutlib
+-dontwarn com.android.internal.**
+-keep class com.android.internal.**
+
+# --- proguard-android ---
