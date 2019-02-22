@@ -1,5 +1,10 @@
 # android-proguard
 
+[![Build Status](https://cloud.drone.io/api/badges/v7lin/android-proguard/status.svg)](https://cloud.drone.io/v7lin/android-proguard)
+[ ![Download](https://api.bintray.com/packages/v7lin/maven/proguard-android/images/download.svg) ](https://bintray.com/v7lin/maven/proguard-android/_latestVersion)
+
+### 声明
+
 通用混淆配置
 
 ### snapshot
