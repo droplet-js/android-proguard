@@ -35,6 +35,8 @@ steps:
   commands:
   - ./gradlew :proguard-android:clean :proguard-android:install :proguard-android:artifactoryPublish
   when:
+    branch:
+    - master
     event:
     - push
 
